@@ -1,0 +1,32 @@
+{{ config(materialized='view') }}
+
+SELECT
+    idwell,
+    area,
+    basin,
+    basincode,
+    country,
+    county,
+    currentwellstatus1,
+    district,
+    division,
+    dttmfirstprod,
+    dttmspud,
+    fieldname,
+    fieldoffice,
+    latitude,
+    latlongdatum,
+    lease,
+    longitude,
+    operated,
+    operator,
+    padname,
+    stateprov,
+    wellconfig,
+    wellida,
+    wellidb,
+    wellidc,
+    wellidd,
+    wellide,
+    wellname
+FROM {{ source('public', 'stg__wellview__wellheader') }}

@@ -1,0 +1,55 @@
+version: 2
+
+sources:
+  - name: public  
+    database: tsdb
+    schema: public
+    tables:
+      - name: stg__aries__ac_economic
+        columns:
+          - name: propnum
+            description: "Property number."
+          - name: qualifier
+            description: "Qualifier of the economic data."
+          - name: day_init
+            description: "Initialization day."
+          - name: parameters
+            description: "Economic parameters in JSON format."
+
+      - name: stg__aries__ac_property
+        columns:
+          - name: propnum
+            description: "Property number."
+          - name: allocid
+            description: "Allocation ID."
+          - name: propname
+            description: "Property name."
+          - name: apinum
+            description: "API number."
+          - name: nri
+            description: "Net revenue interest."
+
+      - name: stg__aries__ac_scenario
+        columns:
+          - name: propnum
+            description: "Property number."
+          - name: qual0
+            description: "Qualifier 0."
+          - name: qual1
+            description: "Qualifier 1."
+
+      - name: stg__pro_count__areatb
+        columns:
+          - name: areamerrickid
+            description: "The unique identifier for the area."
+          - name: concat
+            description: "Concatenated area name."
+
+      - name: stg__pro_count__batterytb
+        columns:
+          - name: batterymerrickid
+            description: "The unique identifier for the battery."
+          - name: concat
+            description: "Concatenated battery name."
+
+

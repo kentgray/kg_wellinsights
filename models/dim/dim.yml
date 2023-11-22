@@ -1,0 +1,141 @@
+version: 2
+
+models:
+  - name: dim_well
+    description: "Dimension table for well information, integrating various attributes from different source tables."
+    columns:
+      - name: well_id
+        description: "Unique identifier for the well, sourced from wellview_wellheader."
+      - name: area
+        description: "Geographical area of the well, sourced from wellview_wellheader."
+      - name: basin
+        description: "Basin where the well is located, sourced from wellview_wellheader."
+      - name: basincode
+        description: "Code for the basin, sourced from wellview_wellheader."
+      - name: country
+        description: "Country where the well is located, sourced from wellview_wellheader."
+      - name: county
+        description: "County where the well is located, sourced from wellview_wellheader."
+      - name: currentwellstatus1
+        description: "Current status of the well, sourced from wellview_wellheader."
+      - name: district
+        description: "District where the well is located, sourced from wellview_wellheader."
+      - name: division
+        description: "Division where the well is located, sourced from wellview_wellheader."
+      - name: dttmfirstprod
+        description: "Date and time of the first production, sourced from wellview_wellheader."
+      - name: dttmspud
+        description: "Date and time when the well was spudded, sourced from wellview_wellheader."
+      - name: fieldname
+        description: "Name of the field where the well is located, sourced from wellview_wellheader."
+      - name: fieldoffice
+        description: "Field office managing the well, sourced from wellview_wellheader."
+      - name: latitude
+        description: "Latitude coordinate of the well, sourced from wellview_wellheader."
+      - name: latlongdatum
+        description: "Datum for the latitude and longitude, sourced from wellview_wellheader."
+      - name: lease
+        description: "Lease information for the well, sourced from wellview_wellheader."
+      - name: longitude
+        description: "Longitude coordinate of the well, sourced from wellview_wellheader."
+      - name: operated
+        description: "Indicator if the well is operated, sourced from wellview_wellheader."
+      - name: operator
+        description: "Operator of the well, sourced from wellview_wellheader."
+      - name: padname
+        description: "Name of the pad where the well is located, sourced from wellview_wellheader."
+      - name: stateprov
+        description: "State or province where the well is located, sourced from wellview_wellheader."
+      - name: wellconfig
+        description: "Configuration of the well, sourced from wellview_wellheader."
+      - name: wellname
+        description: "Name of the well, sourced from wellview_wellheader."
+      - name: wellida
+        description: "Alternative well ID (A), sourced from wellview_wellheader."
+      - name: wellidb
+      - name: wellidc
+      - name: wellidd
+      - name: wellide
+      - name: propnum
+        description: "Property number from Aries AC property table."
+      - name: allocid
+        description: "Allocation ID from Aries AC property table."
+      - name: propname
+        description: "Property name from Aries AC property table."
+      - name: nri
+        description: "Net revenue interest from Aries AC property table."
+      - name: completiontype
+        description: "Type of well completion, sourced from pro_count_completiontb."
+      - name: producingstatus
+        description: "Current production status of the well, sourced from pro_count_completiontb."
+      - name: producingmethod
+        description: "Method of production used by the well, sourced from pro_count_completiontb."
+      - name: producingmethodsdescription
+        description: "Description of the producing method, sourced from pro_count_producingmethodstb."
+      - name: routeid
+        description: "Route ID for the well, sourced from pro_count_completiontb."
+      - name: route
+        description: "Concatenated route name, sourced from pro_count_routetb."
+      - name: groupid
+        description: "Group ID the well belongs to, sourced from pro_count_completiontb."
+      - name: divisionid
+        description: "Division ID the well belongs to, sourced from pro_count_completiontb."
+      - name: division
+        description: "Concatenated division name, sourced from pro_count_divisiontb."
+      - name: fieldgroupid
+        description: "Field group ID the well is associated with, sourced from pro_count_completiontb."
+      - name: field_group
+        description: "Concatenated field group name, sourced from pro_count_fieldgrouptb."
+      - name: areaid
+        description: "Area ID where the well is located, sourced from pro_count_completiontb."
+      - name: area
+        description: "Concatenated area name, sourced from pro_count_areatb."
+      - name: batteryid
+        description: "Battery ID associated with the well, sourced from pro_count_completiontb."
+      - name: battery
+        description: "Concatenated battery name, sourced from pro_count_batterytb."
+      - name: stateid
+        description: "State ID where the well is located, sourced from pro_count_completiontb."
+      - name: state_county_name
+        description: "Concatenated state and county name, sourced from pro_count_statecountynamestb."
+      - name: countyid
+        description: "County ID where the well is located, sourced from pro_count_completiontb."
+      - name: ariesid
+        description: "Aries ID of the well, sourced from pro_count_completiontb."
+      - name: wellviewid
+        description: "WellView ID of the well, sourced from pro_count_completiontb."
+      - name: activeflag
+        description: "Flag indicating if the well is active, sourced from pro_count_completiontb."
+      - name: mmsapiwellnumber
+        description: "MMS API number of the well, sourced from pro_count_completiontb."
+
+
+  - name: dim_date
+    description: "Dimension table for dates, with day, month, quarter, year, and weekday."
+    columns:
+      - name: date_id
+        description: "Unique identifier for each date."
+      - name: date
+        description: "The date."
+      - name: day
+        description: "Day of the month."
+      - name: month
+        description: "Month of the year."
+      - name: quarter
+        description: "Quarter of the year."
+      - name: year
+        description: "Year."
+      - name: weekday
+        description: "Day of the week."
+
+        
+  - name: dim_job_type
+    description: "Dimension table for job types and subtypes."
+    columns:
+      - name: job_type_id
+        description: "Unique identifier for each job type."
+      - name: job_type_name
+        description: "Name of the job type."
+      - name: job_subtype_name
+        description: "Name of the job subtype."
+

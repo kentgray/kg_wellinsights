@@ -1,0 +1,319 @@
+version: 2
+
+sources:
+  - name: public  
+    database: tsdb
+    schema: public
+    tables:
+      - name: stg__aries__ac_economic
+        columns:
+          - name: propnum
+            description: "Property number."
+          - name: qualifier
+            description: "Qualifier of the economic data."
+          - name: day_init
+            description: "Initialization day."
+          - name: parameters
+            description: "Economic parameters in JSON format."
+
+      - name: stg__aries__ac_property
+        columns:
+          - name: propnum
+            description: "Property number."
+          - name: allocid
+            description: "Allocation ID."
+          - name: propname
+            description: "Property name."
+          - name: apinum
+            description: "API number."
+          - name: nri
+            description: "Net revenue interest."
+
+      - name: stg__aries__ac_scenario
+        columns:
+          - name: propnum
+            description: "Property number."
+          - name: qual0
+            description: "Qualifier 0."
+          - name: qual1
+            description: "Qualifier 1."
+          - name: qual2
+            description: "Qualifier 2."
+          - name: qual3
+            description: "Qualifier 3."
+          - name: qual4
+            description: "Qualifier 4."
+          - name: qual5
+            description: "Qualifier 5."
+          - name: qual6
+            description: "Qualifier 6."
+          - name: qual7
+            description: "Qualifier 7."
+          - name: qual8
+            description: "Qualifier 8."
+          - name: qual9
+            description: "Qualifier 9."
+
+      - name: stg__pro_count__areatb
+        columns:
+          - name: areamerrickid
+            description: "The unique identifier for the area."
+          - name: concat
+            description: "Concatenated area name."
+
+      - name: stg__pro_count__batterytb
+        columns:
+          - name: batterymerrickid
+            description: "The unique identifier for the battery."
+          - name: concat
+            description: "Concatenated battery name."
+
+      - name: stg__pro_count__completiondailytb
+        columns:
+          - name: merrickid
+            description: "The unique identifier for the record."
+          - name: recorddate
+            description: "The date when the record was logged."
+          - name: productiondate
+            description: "The date of production."
+          - name: producingmethod
+            description: "The method used for production."
+          - name: dailydowntime
+            description: "Recorded daily downtime."
+          - name: allocestoilvol
+            description: "Allocated estimated oil volume."
+          - name: oilproduction
+            description: "Amount of oil produced."
+          - name: allocestgasvolmcf
+            description: "Allocated estimated gas volume in MCF."
+          - name: allocestinjgasvolmcf
+            description: "Allocated estimated injected gas volume in MCF."
+          - name: allocestwatervol
+            description: "Allocated estimated water volume."
+          - name: waterproduction
+            description: "Amount of water produced."
+          - name: chokesize
+            description: "Size of the choke."
+          - name: casingpressure
+            description: "Pressure in the casing."
+          - name: tubingpressure
+            description: "Pressure in the tubing."
+
+      - name: stg__pro_count__completiontb
+        columns:
+          - name: merrickid
+            description: "The unique identifier for the well completion."
+          - name: wellname
+            description: "Name of the well."
+          - name: completiontype
+            description: "Type of well completion."
+          - name: producingstatus
+            description: "Current production status of the well."
+          - name: producingmethod
+            description: "Method of production used by the well."
+          - name: apiwellnumber
+            description: "API number of the well."
+          - name: routeid
+            description: "Route ID for the well."
+          - name: groupid
+            description: "Group ID the well belongs to."
+          - name: divisionid
+            description: "Division ID the well belongs to."
+          - name: fieldgroupid
+            description: "Field group ID the well is associated with."
+          - name: areaid
+            description: "Area ID where the well is located."
+          - name: batteryid
+            description: "Battery ID associated with the well."
+          - name: stateid
+            description: "State ID where the well is located."
+          - name: countyid
+            description: "County ID where the well is located."
+          - name: ariesid
+            description: "Aries ID of the well."
+          - name: wellviewid
+            description: "WellView ID of the well."
+          - name: activeflag
+            description: "Flag indicating if the well is active."
+          - name: mmsapiwellnumber
+            description: "MMS API number of the well."
+
+      - name: stg__pro_count__divisiontb
+        columns:
+          - name: divisionmerrickid
+            description: "Unique identifier for the division."
+          - name: concat
+            description: "Concatenated division name."
+
+      - name: stg__pro_count__fieldgrouptb
+        columns:
+          - name: fieldgroupmerrickid
+            description: "Unique identifier for the field group."
+          - name: concat
+            description: "Concatenated field group name."
+
+      - name: stg__pro_count__producingmethodstb
+        columns:
+          - name: producingmethodsmerrickid
+            description: "Unique identifier for the producing method."
+          - name: producingmethodsdescription
+            description: "Description of the producing method."
+
+      - name: stg__pro_count__producingstatustb
+        columns:
+          - name: producingstatusmerrickid
+            description: "Unique identifier for the producing status."
+          - name: producingdescription
+            description: "Description of the producing status."
+
+      - name: stg__pro_count__routetb
+        columns:
+          - name: routemerrickid
+            description: "Unique identifier for the route."
+          - name: concat
+            description: "Concatenated route name."
+
+      - name: stg__pro_count__statecountynamestb
+        columns:
+          - name: statecode
+            description: "Code for the state."
+          - name: countycode
+            description: "Code for the county."
+          - name: concat
+            description: "Concatenated state and county name."
+
+      - name: stg__wellview__job
+        columns:
+          - name: idwell
+            description: "UUID identifier for the well."
+          - name: idrec
+            description: "Text identifier for the record."
+          - name: dttmend
+            description: "Timestamp marking the end of the job."
+          - name: dttmstart
+            description: "Timestamp marking the start of the job."
+          - name: jobsubtyp
+            description: "Subtype of the job."
+          - name: jobtyp
+            description: "Type of the job."
+          - name: status1
+            description: "Primary status of the job."
+          - name: status2
+            description: "Secondary status of the job."
+          - name: targetform
+            description: "Target formation for the job."
+          - name: usertxt1
+            description: "User text field 1."
+          - name: wvtyp
+            description: "Type of WellView record."
+
+      - name: stg__wellview__jobreport
+        columns:
+          - name: idwell
+            description: "UUID identifier for the well."
+          - name: idrecparent
+            description: "Text identifier for the parent record."
+          - name: idrec
+            description: "Text identifier for the record."
+          - name: condhole
+            description: "Condition of the hole."
+          - name: condlease
+            description: "Condition of the lease."
+          - name: condroad
+            description: "Road condition."
+          - name: condwave
+            description: "Wave condition."
+          - name: condweather
+            description: "Weather condition."
+          - name: condwind
+            description: "Wind condition."
+          - name: depthtvdendprojmethod
+            description: "Method used for projecting the depth TVD end."
+          - name: dttmend
+            description: "Timestamp marking the end of the report period."
+          - name: dttmstart
+            description: "Timestamp marking the start of the report period."
+          - name: rigtime
+            description: "Recorded rig time."
+
+      - name: stg__wellview__jobreportcostgen
+        columns:
+          - name: idwell
+            description: "UUID identifier for the well."
+          - name: idrecparent
+            description: "Text identifier for the parent record."
+          - name: idrec
+            description: "Text identifier for the record."
+          - name: code1
+            description: "First code associated with the cost."
+          - name: code2
+            description: "Second code associated with the cost."
+          - name: code3
+            description: "Third code associated with the cost."
+          - name: code4
+            description: "Fourth code associated with the cost."
+          - name: cost
+            description: "The cost amount."
+          - name: des
+            description: "Description of the cost."
+          - name: vendor
+            description: "Vendor associated with the cost."
+            
+      - name: stg__wellview__wellheader
+        columns:
+          - name: idwell
+            description: "UUID identifier for the well."
+          - name: area
+            description: "Geographical area of the well."
+          - name: basin
+            description: "Basin where the well is located."
+          - name: basincode
+            description: "Code for the basin."
+          - name: country
+            description: "Country where the well is located."
+          - name: county
+            description: "County where the well is located."
+          - name: currentwellstatus1
+            description: "Current status of the well."
+          - name: district
+            description: "District where the well is located."
+          - name: division
+            description: "Division where the well is located."
+          - name: dttmfirstprod
+            description: "Date and time of the first production."
+          - name: dttmspud
+            description: "Date and time when the well was spudded."
+          - name: fieldname
+            description: "Name of the field where the well is located."
+          - name: fieldoffice
+            description: "Field office managing the well."
+          - name: latitude
+            description: "Latitude coordinate of the well."
+          - name: latlongdatum
+            description: "Datum for the latitude and longitude."
+          - name: lease
+            description: "Lease information for the well."
+          - name: longitude
+            description: "Longitude coordinate of the well."
+          - name: operated
+            description: "Indicator if the well is operated (typically as a binary flag)."
+          - name: operator
+            description: "Operator of the well."
+          - name: padname
+            description: "Name of the pad where the well is located."
+          - name: stateprov
+            description: "State or province where the well is located."
+          - name: wellconfig
+            description: "Configuration of the well."
+          - name: wellida
+            description: "Alternative well ID (A)."
+          - name: wellidb
+            description: "Alternative well ID (B)."
+          - name: wellidc
+            description: "Alternative well ID (C)."
+          - name: wellidd
+            description: "Alternative well ID (D)."
+          - name: wellide
+            description: "Alternative well ID (E)."
+          - name: wellname
+            description: "Name of the well."

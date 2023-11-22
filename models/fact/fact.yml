@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: fact_production
+    description: "Fact table view for production data, including oil, gas, and water volumes."
+    columns:
+      - name: production_id
+        description: "Unique identifier for each production record."
+        tests:
+          - unique
+          - not_null
+      - name: well_id
+        description: "Identifier for the well."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_well')
+              field: well_id
+      - name: date_id
+        description: "Identifier for the date."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_date')
+              field: date_id
+      - name: oil_volume
+        description: "Volume of oil produced."
+        tests:
+          - not_null
+      - name: gas_volume
+        description: "Volume of gas produced."
+        tests:
+          - not_null
+      - name: water_volume
+        description: "Volume of water produced."
+        tests:
+          - not_null
+
+  - name: fact_forecast
+    description: "Table to store forecast data."
+    columns:
+      - name: forecast_id
+        description: "Unique identifier for each forecast record."
+      - name: well_id
+        description: "Identifier for the well."
+      - name: date_id
+        description: "Identifier for the date."
+      - name: gas_forecast_volume
+        description: "Forecasted volume of gas."
+
+  - name: populate_fact_forecast
+    description: "Model to populate the fact_forecast table with forecast data."
