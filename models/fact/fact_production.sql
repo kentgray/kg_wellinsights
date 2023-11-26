@@ -1,4 +1,4 @@
-{{ config(materialized='view') }}
+{{ config(materialized='table') }}
 
 WITH pro_count_completion_daily AS (
     SELECT * FROM {{ ref('stg__pro_count__completiondailytb') }}

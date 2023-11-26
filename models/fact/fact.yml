@@ -50,3 +50,82 @@ models:
 
   - name: populate_fact_forecast
     description: "Model to populate the fact_forecast table with forecast data."
+
+  - name: fact_workover
+    description: "This table contains aggregated workover data for wells."
+    columns:
+      - name: workover_id
+        description: "The primary key of the workover record."
+        tests:
+          - unique
+          - not_null
+      - name: well_id
+        description: "UUID of the well."
+        tests:
+          - not_null
+      - name: start_date_id
+        description: "Start date identifier."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['List of acceptable start_date_ids']
+      - name: end_date_id
+        description: "End date identifier."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['List of acceptable end_date_ids']
+      - name: job_type_id
+        description: "Identifier for the type of job."
+        tests:
+          - not_null
+      - name: total_cost
+        description: "Total cost of the workover."
+        tests:
+          - not_null
+
+version: 2
+
+models:
+  - name: fact_measurements
+    description: "A table storing various measurements for wells."
+    columns:
+      - name: measurement_id
+        description: "Unique identifier for each measurement record."
+        tests:
+          - unique
+          - not_null
+      - name: well_id
+        description: "Identifier for the well."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_well')
+              field: well_id
+      - name: date_id
+        description: "Identifier for the date."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_date')
+              field: date_id
+      - name: daily_downtime
+        description: "Daily downtime for the well."
+        tests:
+          - not_null
+      - name: injected_gas_volume
+        description: "Volume of gas injected."
+        tests:
+          - not_null
+      - name: casing_pressure
+        description: "Pressure within the well casing."
+        tests:
+          - not_null
+      - name: tubing_pressure
+        description: "Pressure within the well tubing."
+        tests:
+          - not_null
+      - name: choke_size
+        description: "Size of the choke."
+        tests:
+          - not_null
