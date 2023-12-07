@@ -4,9 +4,9 @@ kg_wellinsights:
     dev:
       type: postgres
       threads: 8
-      host: j1bmervkby.e2wh3y977d.tsdb.cloud.timescale.com
-      port: 33176
-      user: kent.gray
-      pass: KHrnovXtdH7eAbfG
-      dbname: tsdb
-      schema: kg_wellinsights
+      host: host
+      port: port
+      user: user
+      pass: pass
+      dbname: db
+      schema: schema

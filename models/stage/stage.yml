@@ -6,17 +6,47 @@ sources:
     schema: public
     tables:
       - name: stg__aries__ac_economic
+        description: "Economic data of properties, including initialization dates and various parameters in JSON format.  The JSON format has been parsed into columns for easier analysis and accessibility"
         columns:
           - name: propnum
-            description: "Property number."
+            description: "Unique identifier for the property."
           - name: qualifier
-            description: "Qualifier of the economic data."
+            description: "Qualifier for the economic data, categorizing the data."
           - name: day_init
-            description: "Initialization day."
-          - name: parameters
-            description: "Economic parameters in JSON format."
+            description: "Initialization day for the economic data."
+          - name: gas_b_factor
+            description: "Extracted gas B factor."
+          - name: oil_b_factor
+            description: "Extracted oil B factor."
+          - name: gas_rate_init
+            description: "Initial gas rate."
+          - name: oil_rate_init
+            description: "Initial oil rate."
+          - name: water_b_factor
+            description: "Extracted water B factor."
+          - name: water_rate_init
+            description: "Initial water rate."
+          - name: extra_inputs_data
+            description: "Additional input data ."
+          - name: gas_decline_minimum
+            description: "Minimum decline rate for gas."
+          - name: oil_decline_minimum
+            description: "Minimum decline rate for oil."
+          - name: water_decline_minimum
+            description: "Minimum decline rate for water."
+          - name: capacity_change_option_id
+            description: "Identifier for the capacity change option."
+          - name: gas_decline_init_daily_nom
+            description: "Initial nominal daily decline rate for gas."
+          - name: oil_decline_init_daily_nom
+            description: "Initial nominal daily decline rate for oil."
+          - name: is_lock_slope_capacity_line
+            description: "Boolean flag indicating if the slope capacity line is locked."
+          - name: water_decline_init_daily_nom
+            description: "Initial nominal daily decline rate for water."
 
       - name: stg__aries__ac_property
+        description: "Details of properties including identifiers, names, API numbers, and net revenue interest."
         columns:
           - name: propnum
             description: "Property number."
@@ -30,6 +60,7 @@ sources:
             description: "Net revenue interest."
 
       - name: stg__aries__ac_scenario
+        description: "Scenario data for properties, capturing various qualifiers for different scenarios."
         columns:
           - name: propnum
             description: "Property number."
@@ -55,6 +86,7 @@ sources:
             description: "Qualifier 9."
 
       - name: stg__pro_count__areatb
+        description: "Data about different areas, including their unique identifiers and names."
         columns:
           - name: areamerrickid
             description: "The unique identifier for the area."
@@ -62,6 +94,7 @@ sources:
             description: "Concatenated area name."
 
       - name: stg__pro_count__batterytb
+        description: "Information about battery units used in production, including identifiers and names."
         columns:
           - name: batterymerrickid
             description: "The unique identifier for the battery."
@@ -69,6 +102,7 @@ sources:
             description: "Concatenated battery name."
 
       - name: stg__pro_count__completiondailytb
+        description: "Daily records of well completion activities, including production data and operational details."
         columns:
           - name: merrickid
             description: "The unique identifier for the record."
@@ -100,6 +134,7 @@ sources:
             description: "Pressure in the tubing."
 
       - name: stg__pro_count__completiontb
+        description: "Details about well completions, including types, statuses, methods, and identifiers."
         columns:
           - name: merrickid
             description: "The unique identifier for the well completion."
@@ -139,6 +174,7 @@ sources:
             description: "MMS API number of the well."
 
       - name: stg__pro_count__divisiontb
+        description: "Division data including unique identifiers and names."
         columns:
           - name: divisionmerrickid
             description: "Unique identifier for the division."
@@ -146,6 +182,7 @@ sources:
             description: "Concatenated division name."
 
       - name: stg__pro_count__fieldgrouptb
+        description: "Information about field groups, including unique identifiers and names."
         columns:
           - name: fieldgroupmerrickid
             description: "Unique identifier for the field group."
@@ -153,6 +190,7 @@ sources:
             description: "Concatenated field group name."
 
       - name: stg__pro_count__producingmethodstb
+        description: "Details of different producing methods, including descriptions and identifiers."
         columns:
           - name: producingmethodsmerrickid
             description: "Unique identifier for the producing method."
@@ -160,6 +198,7 @@ sources:
             description: "Description of the producing method."
 
       - name: stg__pro_count__producingstatustb
+        description: "Data about the production status of wells, including unique identifiers and descriptions."
         columns:
           - name: producingstatusmerrickid
             description: "Unique identifier for the producing status."
@@ -167,6 +206,7 @@ sources:
             description: "Description of the producing status."
 
       - name: stg__pro_count__routetb
+        description: "Route data for wells, including unique identifiers and names."
         columns:
           - name: routemerrickid
             description: "Unique identifier for the route."
@@ -174,6 +214,7 @@ sources:
             description: "Concatenated route name."
 
       - name: stg__pro_count__statecountynamestb
+        description: "State and county information, including codes and concatenated names."
         columns:
           - name: statecode
             description: "Code for the state."
@@ -183,6 +224,7 @@ sources:
             description: "Concatenated state and county name."
 
       - name: stg__wellview__job
+        description: "Details of well-related jobs, including types, subtypes, and timings."
         columns:
           - name: idwell
             description: "UUID identifier for the well."
@@ -208,6 +250,7 @@ sources:
             description: "Type of WellView record."
 
       - name: stg__wellview__jobreport
+        description: "Job reports for well operations, detailing various aspects and conditions related to well operations, including identification details, conditions during operations, and time-related data."
         columns:
           - name: idwell
             description: "UUID identifier for the well."
@@ -237,6 +280,7 @@ sources:
             description: "Recorded rig time."
 
       - name: stg__wellview__jobreportcostgen
+        description: "Cost generation reports for jobs, including various cost codes, descriptions, and vendor details."
         columns:
           - name: idwell
             description: "UUID identifier for the well."
@@ -260,6 +304,7 @@ sources:
             description: "Vendor associated with the cost."
             
       - name: stg__wellview__wellheader
+        description: "Header data for wells, including geographic, operational, and identification details."
         columns:
           - name: idwell
             description: "UUID identifier for the well."
