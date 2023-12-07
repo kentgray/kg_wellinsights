@@ -8,7 +8,6 @@ FROM    dim_well
 GROUP BY    operator;
 
 -- 2. Total Lost Gas Production for Well with API = 0000000485 in 2020
--- Assuming the API number is a field in dim_well:
 SELECT    SUM(ABS(forecast.gas_forecast_volume - production.gas_volume)) AS total_lost_gas
 FROM    fact_forecast forecast
         JOIN    fact_production production ON forecast.well_id = production.well_id AND forecast.date_id = production.date_id
@@ -17,7 +16,6 @@ FROM    fact_forecast forecast
 WHERE        w.apiwellnumber = '0000000485' AND EXTRACT(YEAR FROM d.date) = 2020;
 
 -- 3. Total Lost Gas Production for All Wells, Grouped by Area, for 2021
--- Assuming area is a field in dim_well:
 SELECT
     w.area,
     SUM(ABS(forecast.gas_forecast_volume - production.gas_volume)) AS total_lost_gas
@@ -29,7 +27,6 @@ WHERE        EXTRACT(YEAR FROM d.date) = 2021
 GROUP BY    w.area;
 
 -- 4. Pad with Most Net Gas on 07/14/2022
--- Assuming padname and nri (Net Revenue Interest) are fields in dim_well:
 SELECT
     w.padname,
     SUM(production.gas_volume * w.nri) AS net_gas
@@ -42,7 +39,6 @@ ORDER BY    net_gas DESC
 LIMIT 1;
 
 -- 5. Total Cost of Workover Events by Field Group for June 2022
--- Assuming fieldgroup is a field in dim_well:
 SELECT
     w.fieldgroup,
     SUM(workover.total_cost) AS total_cost
