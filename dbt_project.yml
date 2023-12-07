@@ -17,4 +17,7 @@ clean-targets:
 
 models:
   kg_wellinsights:
+    +persist_docs:
+      relation: true
+      columns: true
 
