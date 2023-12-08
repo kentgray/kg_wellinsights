@@ -94,8 +94,9 @@ SELECT
     pcc.wellviewid,
     pcc.activeflag,
     pcc.mmsapiwellnumber
-FROM wellview_wellheader wvh
-JOIN pro_count_completion pcc ON wvh.idwell = pcc.wellviewid
+
+FROM pro_count_completion pcc 
+JOIN wellview_wellheader wvh ON wvh.idwell = pcc.wellviewid and wvh.wellname = 
 JOIN aries_ac_property aacp ON pcc.apiwellnumber = aacp.apinum
 JOIN pro_count_fieldgroup fg ON pcc.fieldgroupid = fg.fieldgroupmerrickid
 JOIN pro_count_area atb ON pcc.areaid = atb.areamerrickid

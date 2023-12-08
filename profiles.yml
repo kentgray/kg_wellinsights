@@ -10,3 +10,4 @@ kg_wellinsights:
       pass: pass
       dbname: db
       schema: schema
+ 
